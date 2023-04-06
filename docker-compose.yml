@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  frontend:
+    image: jupyter/scipy-notebook: 2023-02-28
+    ports: 
+      - "10100:8888" 
+    netrworks:
+      - fromt-tier
+      - back-tier
+
+  backend:
+    image: mongo:latest
+    ports: 
+      - "27017:27017" 
+    volumes:
+      - db-data:/data/db  
+    networks:
+      - back-tier
+
+
+volumes:
+  db-data:
+
+
+networks:
+  front-tier: {}
+  back-tier: {}
