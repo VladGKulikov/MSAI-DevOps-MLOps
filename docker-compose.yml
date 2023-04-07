@@ -9,7 +9,7 @@ services:
       - fromt-tier
       - back-tier
     environment:
-      JUPYTER_TOKEN: 123
+      - JUPYTER_TOKEN = 123
 
   backend:
     image: mongo:latest
